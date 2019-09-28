@@ -16,9 +16,3 @@ let numero = 1
 console.log('escopo fora', numero)
 
  
-for (let i =0; i<10; i++){
-
-    console.log('i=', i)
-}
-
-console.log('i=',i)
