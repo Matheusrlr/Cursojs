@@ -12,14 +12,14 @@
     </script>
     <link href="https://fonts.googleapis.com/css?family=Arbutus+Slab|Domine|Roboto+Slab&display=swap" rel="stylesheet">
   <style>
-  .porcentagem { width:200px;
+  .porcentagem { width:600px;
         height: 1rem;
-        width: 15rem;
         font-family: 'Domine', serif;
         text-align: center;
         margin:50px auto;
         border: 2px solid #cececece;
         border-radius: 13px;
+        color: aqua;
        /*  background-image: linear-gradient(right, red, red 70%, transparent 70%, transparent 100%);
         background-image: -webkit-linear-gradient(right, red, red 70%, transparent 70%, transparent 100%) */  }
 
@@ -29,18 +29,16 @@
      $( document ).ready(function() {
    
 
-        var percent = [23.45, 37.90, 38.76, 12.78,100,50]
+        var percent = [23.45, 37.90, 38.76, 12.78,100,5,30, 0.45, 38, 0.8, 0.5]
 
         for (i in percent){
-            $('.content').append(`<div class="porcentagem"  id="${Math.round(percent[i])}">${percent[i]}%</div>`);
+            $('.content').append(`<div class="porcentagem"  id="${[i]}">${percent[i]}%</div>`);
             console.log(Math.round(percent[i]))
-            if(percent[i] == 100){
-                $(`#${Math.round(percent[i])}`).css({background:`-webkit-linear-gradient(left, #4881ea ${Math.round((percent[i]))}%, transparent ${Math.round(percent[i])}%, transparent 100%`})
-            }else{
+           
             $(`#${Math.round(percent[i])}`).css({background:`linear-gradient(left, red, red ${Math.round(percent[i])}%, transparent ${Math.round(percent[i])}%, transparent 100%`})
-            $(`#${Math.round(percent[i])}`).css({background:`-webkit-linear-gradient(left,  #4881ea ${Math.round((percent[i]))}%, transparent ${Math.round(percent[i])}%, transparent 100%`})
+            $(`#${[i]}`).css({background:`-webkit-linear-gradient(left,  #4881ea ${Math.round(percent[i])}%, #d3d3d3 ${Math.round(percent[i])}%, #d3d3d3`})
             }
-        }
+            
 
     });
     </script>

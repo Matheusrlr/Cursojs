@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Arbutus+Slab|Domine|Roboto+Slab&display=swap" rel="stylesheet">
+  <style>
+
+  .porcentagem { width:600px;
+        height: 1rem;
+        font-family: 'Domine', serif;
+        text-align: center;
+        margin:50px auto;
+        border: 2px solid #cececece;
+        border-radius: 13px;
+        color: eee;
+       /*  background-image: linear-gradient(right, red, red 70%, transparent 70%, transparent 100%);
+        background-image: -webkit-linear-gradient(right, red, red 70%, transparent 70%, transparent 100%) */  }
+
+    /* td, th{
+        border: 1px solid black;
+    }
+    table{
+        border-collapse: collapse;
+    } */
+
+    </style>
+    <script>
+
+     $( document ).ready(function() {
+   
+
+        data = [
+            {
+                id: 0,
+                nome: 'joao',
+                correcoes_feitas : 20,
+                correcoes_totais: 100
+            },
+            {
+                id: 1,
+                nome: 'jose',
+                correcoes_feitas : 67,
+                correcoes_totais: 100
+            },
+            {
+                id: 2,
+                nome: 'matheus',
+                correcoes_feitas : 96,
+                correcoes_totais: 100
+            }
+            ,{
+                id: 3,
+                nome: 'felipe',
+                correcoes_feitas : 13.7,
+                correcoes_totais: 100
+            }
+        ] 
+        
+        
+        $('#n_correcoes p').text(`${data[0].correcoes_totais}`)
+        for( d in data ){
+            
+            percent = (parseFloat(data[d].correcoes_feitas)/parseFloat(data[d].correcoes_totais))*100;
+
+
+            $('#result tbody').append(`
+                <tr>
+                    <td>
+                        <div id='${data[d].id}_id'>${data[d].id}</div>
+                    </td>
+                    <td>${data[d].nome}</td>
+                    <td>
+                        <div class="porcentagem"  id="${data[d].id}_progress">${percent}%</div>
+                    </td>
+                </tr>
+            `);
+            
+            $(`#${data[d].id}_progress`).css({background:`linear-gradient(left, red, red ${Math.round(percent)}%, transparent ${Math.round(percent)}%, transparent 100%`})
+            $(`#${data[d].id}_progress`).css({background:`-webkit-linear-gradient(left,  #4881ea ${Math.round(percent)}%, #d3d3d3 ${Math.round(percent)}%, #d3d3d3`})
+
+        }   
+
+    });
+    </script>
+</head>
+<body>
+   
+
+    <div class="row">
+        <div class="content">
+            <div id='n_correcoes'>
+                <h3>Correções Totais</h3>
+                <p></p>
+            </div>
+            <table id='result'>
+                <thead>
+                    <th>id</th>
+                    <th>nome</th>
+                    <th>Progresso</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</body>
+</html>
